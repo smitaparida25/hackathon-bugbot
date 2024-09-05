@@ -7,9 +7,9 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed = 5f;
     public float jumpForce = 7f;
     public float gravity = -9.81f;
-    public Transform groundCheck; // Position to check for ground (at player's feet)
-    public float groundDistance = 0.4f; // Radius of the sphere to check ground
-    public LayerMask groundMask; // Mask to identify "Ground" layer
+    public Transform groundCheck; 
+    public float groundDistance = 0.4f;
+    public LayerMask groundMask;
 
     private Vector3 velocity;
     private bool isGrounded;
@@ -27,20 +27,23 @@ public class PlayerMovement : MonoBehaviour
 
         if (isGrounded && velocity.y < 0)
         {
-            velocity.y = -2f;
+            velocity.y = -2f; // Ensure the character stays grounded
         }
 
+        // Input for movement
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
-        // Move the player based on input
         Vector3 move = transform.right * x + transform.forward * z;
         controller.Move(move * moveSpeed * Time.deltaTime);
 
+        // Jumping logic
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
             velocity.y = Mathf.Sqrt(jumpForce * -2f * gravity);
         }
+
+        // Apply gravity
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
     }
