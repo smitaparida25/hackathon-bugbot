@@ -5830,7 +5830,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBarForeground: {fileID: 2090073896}
+  hydrationBarForeground: {fileID: 0}
   maxHealth: 100
+  maxHydration: 100
 --- !u!1001 &1112218826
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6272,7 +6274,7 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: dc12f4624b874974f8508e2520776bb8, type: 2}
     - target: {fileID: 5929863015611201620, guid: 7ee9a881584999e498cd568894ff4b39, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 400
+      value: 401.47
       objectReference: {fileID: 0}
     - target: {fileID: 5929863015611201620, guid: 7ee9a881584999e498cd568894ff4b39, type: 3}
       propertyPath: m_LocalPosition.y
@@ -6280,7 +6282,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5929863015611201620, guid: 7ee9a881584999e498cd568894ff4b39, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 502.15326
+      value: 517.08
       objectReference: {fileID: 0}
     - target: {fileID: 5929863015611201620, guid: 7ee9a881584999e498cd568894ff4b39, type: 3}
       propertyPath: m_LocalRotation.w
@@ -6288,15 +6290,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5929863015611201620, guid: 7ee9a881584999e498cd568894ff4b39, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5929863015611201620, guid: 7ee9a881584999e498cd568894ff4b39, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5929863015611201620, guid: 7ee9a881584999e498cd568894ff4b39, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5929863015611201620, guid: 7ee9a881584999e498cd568894ff4b39, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -6339,6 +6341,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6413348323692585710, guid: 7ee9a881584999e498cd568894ff4b39, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1310063414}
+    - targetCorrespondingSourceObject: {fileID: 6413348323692585710, guid: 7ee9a881584999e498cd568894ff4b39, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1310063416}
+    - targetCorrespondingSourceObject: {fileID: 6413348323692585710, guid: 7ee9a881584999e498cd568894ff4b39, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1310063415}
   m_SourcePrefab: {fileID: 100100000, guid: 7ee9a881584999e498cd568894ff4b39, type: 3}
 --- !u!4 &1310063405 stripped
 Transform:
@@ -6357,17 +6365,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97c15a6bce893fa42af3e41271e6ef7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 1310063408}
-  animator: {fileID: 1310063413}
-  walkSpeed: 2
-  runSpeed: 5
-  gravity: -9.81
-  jumpHeight: 1
-  groundCheck: {fileID: 760376890}
-  groundDistance: 0.4
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!143 &1310063408
 CharacterController:
   m_ObjectHideFlags: 0
@@ -6406,14 +6403,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edb317f18d394f546a6a2580bd087395, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
-  jumpForce: 7
-  gravity: -9.81
-  groundCheck: {fileID: 760376890}
-  groundDistance: 0.4
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 64
 --- !u!54 &1310063410
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6437,7 +6426,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -6484,6 +6473,49 @@ MonoBehaviour:
   hydration: 100
   healthDecreaseRate: 1
   hydrationDecreaseRate: 1
+--- !u!114 &1310063415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 628733729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a081ccc9a4c35948b12e6578e1370f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 1310063408}
+  animator: {fileID: 1310063413}
+  walkSpeed: 2
+  runSpeed: 5
+  gravity: -9.81
+  jumpHeight: 1
+  groundCheck: {fileID: 760376890}
+  groundDistance: 0.4
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 0
+--- !u!114 &1310063416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 628733729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c62825b1515bc4fbb0190a2e7fb59e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 5
+  jumpForce: 7
+  gravity: -9.81
+  groundCheck: {fileID: 760376890}
+  groundDistance: 0.4
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1001 &1457795785
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7341,10 +7373,10 @@ SceneRoots:
   - {fileID: 913448193}
   - {fileID: 1994735646}
   - {fileID: 2010117433}
-  - {fileID: 1310063404}
   - {fileID: 1594685256}
   - {fileID: 1457795785}
   - {fileID: 1221677690}
   - {fileID: 1500616557}
   - {fileID: 904533176}
   - {fileID: 161616731}
+  - {fileID: 1310063404}
